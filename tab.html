@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="flex justify-center my-8">
+    <div class="w-full max-w-xs">
+      <div class="flex mb-4">
+        <button class="w-1/2 py-2 text-center bg-gray-200 rounded-tl-lg text-gray-600 font-medium tracking-wide hover:bg-gray-300 focus:outline-none focus:bg-gray-300 tab-button active" onclick="openTab(event, 'tab1')">
+          Tab 1
+        </button>
+        <button class="w-1/2 py-2 text-center bg-gray-200 rounded-tr-lg text-gray-600 font-medium tracking-wide hover:bg-gray-300 focus:outline-none focus:bg-gray-300 tab-button" onclick="openTab(event, 'tab2')">
+          Tab 2
+        </button>
+      </div>
+      <div class="bg-gray-200 rounded-b-lg p-4">
+        <div id="tab1" class="tab-content">
+          <p>Content for tab 1</p>
+        </div>
+        <div id="tab2" class="tab-content" style="display:none;">
+          <p>Content for tab 2</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+  function openTab(evt, tabName) {
+    // タブ内のすべてのコンテンツを非表示にする
+    const tabContent = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < tabContent.length; i++) {
+      tabContent[i].style.display = "none";
+    }
+
+    // タブボタンのすべての要素から active クラスを削除する
+    const tabButtons = document.getElementsByClassName("tab-button");
+    for (let i = 0; i < tabButtons.length; i++) {
+      tabButtons[i].classList.remove("active");
+    }
+
+    // クリックされたタブのコンテンツを表示する
+    document.getElementById(tabName).style.display = "block";
+
+    // クリックされたタブに active クラスを追加する
+    evt.currentTarget.classList.add("active");
+  }
+</script>
