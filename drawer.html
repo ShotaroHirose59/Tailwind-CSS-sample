@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="flex justify-center my-8">
+    <!-- ドロワーを表示するボタン -->
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="openDrawer()">
+      Open Drawer
+    </button>
+  </div>
+
+  <!-- ドロワー本体 -->
+  <div id="drawer" class="fixed z-10 inset-y-0 left-0 w-64 bg-gray-200 px-4 py-6 overflow-y-auto hidden">
+    <div class="mb-4">
+      <h2 class="text-lg font-bold">Drawer Title</h2>
+    </div>
+    <ul class="list-disc list-inside">
+      <li>Menu Item 1</li>
+      <li>Menu Item 2</li>
+      <li>Menu Item 3</li>
+    </ul>
+    <div class="flex justify-end mt-6">
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="closeDrawer()">
+        Close
+      </button>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- JavaScriptでドロワーを開く/閉じる -->
+<script>
+  function openDrawer() {
+    document.getElementById("drawer").classList.remove("hidden");
+  }
+
+  function closeDrawer() {
+    document.getElementById("drawer").classList.add("hidden");
+  }
+</script>
