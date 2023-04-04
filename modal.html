@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="flex justify-center my-8">
+    <!-- モーダルを開くためのボタン -->
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="openModal('modal')">Open Modal</button>
+  </div>
+
+  <!-- モーダルの本体 -->
+  <div id="modal" class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center hidden">
+    <!-- 背景のオーバーレイ -->
+    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50" onclick="closeModal('modal')"></div>
+
+    <!-- モーダルのコンテンツ -->
+    <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto" onclick="event.stopPropagation()">
+      <!-- モーダルのタイトル -->
+      <div class="modal-title px-6 py-4">
+        <p class="text-lg font-semibold">Modal Title</p>
+      </div>
+
+      <!-- モーダルの本文 -->
+      <div class="modal-body px-6 py-4">
+        <p class="text-gray-700">Modal Body</p>
+      </div>
+
+      <!-- モーダルのボタン -->
+      <div class="modal-footer px-6 py-4">
+        <button class="modal-close bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" onclick="closeModal('modal')">Close</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+  // モーダルを開くための関数
+  function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.remove('hidden');
+  }
+
+  // モーダルを閉じるための関数
+  function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.add('hidden');
+  }
+</script>
